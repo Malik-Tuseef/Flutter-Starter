@@ -13,5 +13,5 @@ Future main() async {
   await di.init();
   await initGobalOnMain;
 
-  runApp(const Wrapper());
+  runApp(Wrapper());
 }
