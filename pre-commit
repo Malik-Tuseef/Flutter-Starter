@@ -11,7 +11,7 @@ if [[ $? -ne 0 ]]; then
 fi
 dart format --set-exit-if-changed --line-length 80 lib/
 git add lib
-git commit -m "formet lib all files code to maximum line length of 80 characters" --no-verify
+git commit --amend --no-edit --no-verify
 
 echo ""
 echo "Pre-commit checks passed. Committing changes..."
