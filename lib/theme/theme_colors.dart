@@ -6,7 +6,6 @@ Color tTextColorLight = const Color(0xff000000);
 Color tScaffoldColorLight = const Color(0xffffffff);
 
 //dark
-
 Color tTextColordark = const Color(0xffffffff);
 Color tPrimaryColorDark = const Color(0xffffffff);
 Color tScaffoldColorDark = const Color(0xff000000);
