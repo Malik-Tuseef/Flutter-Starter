@@ -22,7 +22,8 @@ void showSnackBar(String value, BuildContext context) {
 
 String getSupportedLanguageCode() {
   const List<Locale> supportedLocales = AppLocalizations.supportedLocales;
-  final String systemLanguageCode = window.locale.languageCode;
+  final String systemLanguageCode =
+      PlatformDispatcher.instance.locale.languageCode;
 
   for (var locale in supportedLocales) {
     if (locale.languageCode == systemLanguageCode) {
