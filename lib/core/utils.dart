@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'error/failures.dart';
 
 const String socketFailureMessage = 'Please check your network conections';
@@ -25,15 +26,4 @@ class Utils {
         return ServerFailure(message: e.toString());
     }
   }
-
-  // static Failure catchQraphqlExaptions(OperationException e) {
-  //   switch (e.runtimeType) {
-  //     case LinkException:
-  //       return CustomFailure(message: e.linkException.toString());
-  //     case OperationException:
-  //       return CustomFailure(message: e.linkException.toString());
-  //     default:
-  //       return CustomFailure(message: e.graphqlErrors.toString());
-  //   }
-  // }
 }

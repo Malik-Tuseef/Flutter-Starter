@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter_starter/l10n/l10n.dart';
+
 @RoutePage(name: 'splash')
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -48,62 +50,59 @@ class AnimatedSplash extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     _scale = 1 - _controller!.value;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: RichText(
-            textAlign: TextAlign.center,
-            text: const TextSpan(
-              text: 'Animated Splash by ',
-              style: TextStyle(color: Colors.white, fontSize: 20),
-              children: <TextSpan>[
-                TextSpan(
-                  text: 'Med Redha',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: <Color>[Colors.red, Colors.blue])),
-          ),
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                margin: const EdgeInsets.only(bottom: 15.0),
-                child: AnimatedOpacity(
-                  opacity: _visible ? 1.0 : 0.0,
-                  duration: const Duration(milliseconds: 500),
-                  child: FlutterLogo(
-                    size: 300.0,
-                    style: _logoStyle,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              GestureDetector(
-                onTapDown: _onTapDown,
-                onTapUp: _onTapUp,
-                child: Transform.scale(
-                  scale: _scale,
-                  child: _animatedButtonUI,
-                ),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: RichText(
+          textAlign: TextAlign.center,
+          text: TextSpan(
+            text: 'Animated Splash by ',
+            style: const TextStyle(color: Colors.white, fontSize: 20),
+            children: <TextSpan>[
+              TextSpan(
+                text: context.l10n.appName,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
           ),
+        ),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[Colors.red, Colors.blue])),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.only(bottom: 15.0),
+              child: AnimatedOpacity(
+                opacity: _visible ? 1.0 : 0.0,
+                duration: const Duration(milliseconds: 500),
+                child: FlutterLogo(
+                  size: 300.0,
+                  style: _logoStyle,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            GestureDetector(
+              onTapDown: _onTapDown,
+              onTapUp: _onTapUp,
+              child: Transform.scale(
+                scale: _scale,
+                child: _animatedButtonUI,
+              ),
+            ),
+          ],
         ),
       ),
     );

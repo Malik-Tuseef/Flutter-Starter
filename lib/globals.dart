@@ -1,13 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-late SharedPreferences localStorage;
-late bool isDarkTheme;
-
-Future<void> get initGobalOnMain async {
-  localStorage = await SharedPreferences.getInstance();
-  isDarkTheme = false;
-}
+import 'l10n/l10n.dart';
 
 void showSnackBar(String value, BuildContext context) {
   Future.delayed(const Duration(milliseconds: 100), () {
@@ -23,4 +18,16 @@ void showSnackBar(String value, BuildContext context) {
           value,
         )));
   });
+}
+
+String getSupportedLanguageCode() {
+  const List<Locale> supportedLocales = AppLocalizations.supportedLocales;
+  final String systemLanguageCode = window.locale.languageCode;
+
+  for (var locale in supportedLocales) {
+    if (locale.languageCode == systemLanguageCode) {
+      return systemLanguageCode;
+    }
+  }
+  return 'en';
 }
