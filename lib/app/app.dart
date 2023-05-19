@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_starter/core/shared_preferences_manager.dart';
+
+import '../core/shared_preferences_manager.dart';
 import '../globals.dart';
 import '../l10n/l10n.dart';
 import '../routers.dart';

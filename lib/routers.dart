@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_starter/routers.gr.dart';
+
+import 'routers.gr.dart';
 
 class AuthGuard extends AutoRouteGuard {
   @override
